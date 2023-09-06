@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:yellowgreen;
+}
+
+:root {
+    --grid-rows: 1;
+    --grid-cols : 1;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), minmax(5px, 1fr));
+    grid-template-rows: repeat(var(--grid-rows), minmax(5px, 1fr));
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    width: 600px;
+    height: 600px;
+    margin-top: 50px;
+    margin-left: 30%;
+}
+
+.grid {
+    background-color: white;
+    border-top: 0.01px solid grey;
+    border-left: 0.01px solid grey;
+}
