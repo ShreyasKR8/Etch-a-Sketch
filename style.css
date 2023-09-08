@@ -4,13 +4,47 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color:yellowgreen;
-}
-
 :root {
     --grid-rows: 1;
     --grid-cols : 1;
+}
+
+body {
+    background-color: grey;
+}
+
+.sketch-box {
+    /* border: 1px solid red; */
+    width: fit-content; 
+    padding: 10px 30px 20px; /*omitted last value */
+    margin-left: 30%;
+    background-color: purple;
+    border-radius: 30px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 600px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    /* border: 1px solid red; */
+}
+
+button:hover {
+    background-color: grey;
+    color: black;
 }
 
 .grid-container {
@@ -21,12 +55,15 @@ body {
     border-bottom: 1px solid grey;
     width: 600px;
     height: 600px;
-    margin-top: 50px;
-    margin-left: 30%;
+    margin-top: 10px;
 }
 
 .grid {
     background-color: white;
     border-top: 0.01px solid grey;
     border-left: 0.01px solid grey;
+}
+
+.remove-grid-border {
+    border: none;
 }
