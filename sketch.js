@@ -1,8 +1,12 @@
-const containerDiv = document.querySelector('.grid-container');
 let gridDiv;
 let mouseDown = false;
 let isRandomRGB = false;
 let chosenColor = 'rgb(0, 0, 0)';
+const containerDiv = document.querySelector('.grid-container');
+const gridSizeBtn = document.querySelector('.grid-size-button');
+const randomColorBtn = document.querySelector('.random-rgb-button');
+const toggleGridBtn = document.querySelector('.toggle-grid-button');
+const clearBtn = document.querySelector('.clear-button');
 
 function fillGrids(gridSize = 16)
 {
@@ -45,7 +49,30 @@ function setRandomColor()
     chosenColor = `rgb(${r}, ${g}, ${b})`;
 }
 
+function toggleGridLines(gridLines)
+{
+    containerDiv.classList.toggle('remove-grid-border');
+    
+    containerDiv.childNodes.forEach(gridDiv => {
+        gridDiv.classList.toggle('remove-grid-border');
+    });
+}
+
+function clearGrid()
+{
+    containerDiv.childNodes.forEach(gridDiv => {
+        gridDiv.style.backgroundColor = 'white'
+    });
+}
+
 fillGrids();
+
+gridSizeBtn.addEventListener('click', () => {
+    do{
+        var gridSize = prompt("Enter the grid size");
+    }while(gridSize > 100 || gridSize <= 0);
+    fillGrids(gridSize);
+});
 
 // containerDiv.addEventListener('mouseover', applyColorOnClick);
 // containerDiv.addEventListener('mousedown', applyColorOnClick);
@@ -54,15 +81,6 @@ containerDiv.addEventListener('mouseover', applyColorOnHover);
 document.body.onmousedown =  () => mouseDown = true;
 document.body.onmouseup = () => mouseDown = false;
 
-const gridSizeBtn = document.querySelector('.grid-size-button');
-gridSizeBtn.addEventListener('click', () => {
-    do{
-        var gridSize = prompt("Enter the grid size");
-    }while(gridSize > 100 || gridSize <= 0);
-    fillGrids(gridSize);
-});
-
-const randomColorBtn = document.querySelector('.random-rgb-button');
 randomColorBtn.addEventListener('click', () => {
     if(!isRandomRGB)
     {
@@ -77,9 +95,6 @@ randomColorBtn.addEventListener('click', () => {
     }
 });
 
-const clearBtn = document.querySelector('.clear-button');
-clearBtn.addEventListener('click', () => {
-    containerDiv.childNodes.forEach(gridDiv => {
-        gridDiv.style.backgroundColor = 'white'
-    });
-})
+toggleGridBtn.addEventListener('click', toggleGridLines);
+
+clearBtn.addEventListener('click', clearGrid);

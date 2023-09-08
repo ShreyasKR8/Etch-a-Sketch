@@ -18,8 +18,8 @@ body {
     width: fit-content; 
     padding: 10px 30px 20px; /*omitted last value */
     margin-left: 30%;
-    /* margin-top: 20px; */
     background-color: purple;
+    border-radius: 30px;
 }
 
 h2 {
@@ -62,4 +62,8 @@ button:hover {
     background-color: white;
     border-top: 0.01px solid grey;
     border-left: 0.01px solid grey;
+}
+
+.remove-grid-border {
+    border: none;
 }
